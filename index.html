@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exercice_8</title>
-  <meta charset="UTF-8">
+ <title>Exercice_8</title>
+ <meta charset="UTF-8">
 </head>
 <body>
-  <form>
-    <label for="age">Votre âge : </label><input type="text" id="age" name="age"/><br/>
-    <button id="valider" onclick="affiche()" name="valider">Valider</button>
-  </form>
-  <script>
-   function affiche(){
-  var text = document.getElementById('age').value;
-  var age = parseInt(text);
-  if (age <= 17){
-    alert('Vous etes mineur');
-  }else {
-    alert('Vous etes majeur');
-}
-  }
+ <form>
+   <label for="age">Votre âge : </label><input type="text" id="age" name="age"/><br/>
+   <button id="valider" onclick="maj();" name="valider">Valider</button>
+ </form>
+ <script>
+ /*Demander à l’utilisateur de saisir son âge.
+ S’il a plus de 18 ans, afficher " Vous êtes majeur ". Sinon afficher " Vous êtes mineur ".*/
 
-  </script>
+ function maj(){ //déclare la fction.
+   var age = document.getElementById("age").value;  // on appel l'input avec l'id
+   if (isNaN(age)){                                 // pr verifier qu'il a mis un nbre
+     alert("vous devez mettre un age");            // affiche "vous devez mettre un age"
+   }else{                                          // sinon
+     if( (age > 0) && (age < 18) ){                // entre 0 et 18 ans
+       alert("vous etes mineur");                  // affiche mineur
+     }else if( (age >= 18) && (age <= 100) ){      // entre 18 et 100 ans
+       alert("vous etes majeur");                  // affiche majeur
+     }else{                                        // sinon
+       alert("Vous avez rien compris");            // affiche " vs avez rien compris"
+     }
+   }
+}
+</script>
 </body>
 </html>
